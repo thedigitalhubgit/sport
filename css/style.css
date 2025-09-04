@@ -202,7 +202,10 @@ input{
 }
 .contentBox{
 	background: #fff;
-    border-radius: 10px;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+/*    border-radius: 10px;*/
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 .contentBox ul{
@@ -301,28 +304,234 @@ input{
 .contentBox tbody td.greentDot:before{
 	background: rgba(76, 175, 80, 1);
 }
+.inputField{
+	display: flex;
+	align-items: center;
+	padding: 15px 30px 15px 30px;
+	gap: 10px;
+}
+.inputField input{
+	font-size: 16px;
+	color: #000;
+	font-weight: 400;
+	border: 1px solid rgba(233, 234, 239, 1);
+	border-radius: 0;
+}
+.inputField h5{
+	font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+    color: #000;
+}
+.inputField .greenText{
+	color: rgba(50, 205, 50, 1);
+}
+.darkBg{
+	background: rgba(217, 217, 217, 1);
+}
+.predictionBox{
+	margin: 15px 30px 15px 30px;
+	display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 14px;
+    color: #fff;
+}
+.predictionBox.blue{
+	background-color: rgba(0, 191, 255, 1);
+}
+.predictionBox.green{
+	background-color: rgba(50, 205, 50, 1);
+}
+.predictionBox h3{
+	font-size: 28px;
+	font-weight: 600;
+	margin: 0;
+}
+.predictionBox span{
+	font-size: 20px;
+	font-weight: 400;
+}
+.predictionBoxValues{
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
+	line-height: 1;
+}
+.predictionBox strong{
+	font-size: 40px;
+}
+.predictionBoxValues span{
+	font-size: 24px;
+}
+.footer{
+	background-color: rgba(0, 86, 179, 1);
+	padding: 30px 0;
+	text-align: center;
+}
+.footer p{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+    opacity: .5;
+    font-weight: 400;
+}
+.footer{
+	position: relative;
+}
+.footer h4{
+	font-size: 30px;
+	color: #fff;
+	font-weight: 400;
+}
+.footer button{
+	border-radius: 8px;
+	border: 0;
+	background: rgba(50, 205, 50, 1);
+	color: #ffff;
+	font-size: 16px;
+	font-weight: 700;
+	width: 200px;
+    height: 50px;
+    margin: 20px 0;
+}
+.footer ul{
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    gap: 70px;
+}
+.footer li a{
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+}
+.leftWaterMark{
+	position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.rightWaterMark{
+	position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+.rightWaterMark img{
+	height: 100%;
+}
+.weatherStatus{
+	padding: 15px 0px 15px 30px;
+}
+.weatherStatus h5{
+	color: #000;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 0;
+}
+.weatherStatus p{
+	color: #000;
+	font-size: 16px;
+	font-weight: 300;
+}
+.weatherStatus ul{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.weatherStatus li{
+	border-bottom: 0;
+	padding: 0px 0px;
+	    width: 70%;
+	    font-size: 18px;
+	    color: #000;
+	    font-weight: 500;
+}
+.weatherStatus li:nth-child(odd){
+	border-right: 2px solid #000;
+	padding-left: 0;
+}
+.forecast p{
+	font-size: 16px;
+	font-weight: 400;
+}
+.adjusment ul{
+	grid-template-columns: none;
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1;
+    padding-top: 10px;
+}
+.adjusment li{
+	border-right: 0;
+	font-size: 16px;
+	font-weight: 400;
+	list-style-type: disc;
+}
+.adjusment li:nth-child(odd){
+	border-right: 0;
+}
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 1540px){
+@media only screen and (max-width: 1640px){
 	.searchBar input{
 		width: 400px;
+	}
+}
+@media only screen and (max-width: 1540px){
+	.searchBar input{
+		width: 300px;
+	}
+	.loginSec input{
+		width: 100% !important;
+	}
+	.rememberSec input{
+		width: auto !important;
+	}
+}
+@media only screen and (max-width: 1280px){
+	.searchBar input{
+		width: 100%;
+	}
+	.menuBar ul{
+		overflow-x: auto;
+	}
+	.menuBar li a{
+		white-space: nowrap;
+	}
+}
+@media only screen and (max-width: 1150px){
+	.header .navbar{
+		flex-wrap: wrap;
+	}
+	.header .navbar-brand{
+		order: 1;
+	}
+	.searchBar{
+		order: 3;
+		width: 100%;
+	}
+	.loginBar{
+		order: 2;
+	}
+}
+@media only screen and (max-width: 776px){
+	.sportLogo a{
+		font-size: 16px;
+	}
+	.sportLogo img{
+		width: 46px;
 	}
 }
