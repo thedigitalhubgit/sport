@@ -150,14 +150,23 @@ input{
     align-items: center;
     text-transform: uppercase;
 }
-.sportsLogoSec li {
+.sportLogo i {
+  display: none;
+  transition: .2s;
+}
+.swiper-slide-active.sportLogo i {
+  display: inline-block;
+  transition: .2s;
+}
+/*.sportsLogoSec li {
   position: relative;
   width: 14.28%;
 }
 .sportsLogoSec li a i{
 	position: absolute;
 	bottom: -20px;
-}
+	display: none;
+}*/
 .sportsLogoSec li:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -526,7 +535,7 @@ input{
 	padding: 10px 14px;
     border-radius: 10px;
 }
-.featureBtn li a.active{
+.featureBtn li a.active,.featureBtn li a:hover{
 	background: rgba(50, 205, 50, 1);
 	color: #fff;
 }
@@ -590,7 +599,7 @@ input{
 	cursor: pointer;
     border-radius: 10px;
 }
-.contentBox tbody .tabsBookmaker td span.active{
+.contentBox tbody .tabsBookmaker td span.active,.contentBox tbody .tabsBookmaker td span:hover{
 	background-color: rgba(0, 86, 179, 1);
 	color: #fff;
 }
@@ -599,6 +608,64 @@ input{
 	padding: 4px;
 	border-radius: 4px;
 }
+.errorIcon {
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.3); opacity: 0.7; }
+}
+.drop {
+  display: inline-block;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-15px); }
+}
+.sun {
+  display: inline-block;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.wind {
+  display: inline-block;
+  animation: sway 2s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-10px); }
+}
+.rain {
+  display: inline-block;
+  position: relative;
+}
+
+.rain::after {
+  content: "💧";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 20px;
+  transform: translateX(-50%);
+  animation: drop 1s linear infinite;
+}
+
+@keyframes drop {
+  0%   { transform: translate(-50%, 0); opacity: 1; }
+  80%  { transform: translate(-50%, 30px); opacity: 1; }
+  100% { transform: translate(-50%, 40px); opacity: 0; }
+}
+
+
+
 
 @media only screen and (max-width: 1640px){
 	.searchBar input{
