@@ -238,8 +238,8 @@
                  <span>Calculated Value</span>
                </div>
                <div class="predictionBoxValues">
-                 <strong>79%</strong>
-                 <span>$1.85</span>
+                 <strong class="counter">79%</strong>
+                 <span class="counter">$1.85</span>
                </div>
             </div>
             <div class="predictionBox green">
@@ -248,13 +248,13 @@
                  <span>Calculated Value</span>
                </div>
                <div class="predictionBoxValues">
-                 <strong>+7.5</strong>
-                 <span>83%</span>
+                 <strong class="counter">+7.5</strong>
+                 <span class="counter">83%</span>
                </div>
             </div>
           </div>
           <div class="contentBox">
-            <table class="table simpleTable">
+            <table class="table simpleTable borderTable">
               <h4>Value Bit Suggestion</h4>
               <tbody>
                 <tr>
@@ -273,7 +273,7 @@
             </table>
         </div>
         <div class="contentBox">
-            <table class="table simpleTable">
+            <table class="table simpleTable borderTable">
               <h4>Segmented History</h4>
               <tbody>
                 <tr>
@@ -301,14 +301,14 @@
               <h5>WEATHER IMPACT</h5>
               <p>Soldier Field, Chicago</p>
               <ul>
-                <li><img src="img/sun.png"/>72°F (22°C)</li>
-                <li>💧 10%</li>
+                <li><img src="img/sun.png"/><span class="counter">72</span>°F (<span class="counter">22</span>°C)</li>
+                <li>💧 <span class="counter">10%</span></li>
                 <li>💨8mph NE</li>
                 <li><img src="img/error.png"/>Low Risk</li>
               </ul>
               <div class="forecast">
                 <h5>Hourly Forecast:</h5>
-                <p>3PM <img src="img/sun.png"/> 75°F  →  6PM 🌧️ 68°F</p>
+                <p>3PM <img src="img/sun.png"/> <span class="counter">75</span>°F  →  6PM 🌧️ <span class="counter">68</span>°F</p>
               </div>
               <div class="adjusment">
                 <h5>Hourly Forecast:</h5>
@@ -355,6 +355,7 @@
   </div>
 </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
@@ -378,8 +379,44 @@
       992: { slidesPerView: 6 },
     },
   });
+
+  $(document).ready(function () {
+  $('.counter').each(function () {
+    var $this = $(this);
+    var text = $this.text().trim();
+
+    // Detect what kind of value it is
+    let target, suffix = "", prefix = "", isFloat = false;
+
+    if (text.includes("%")) {
+      target = parseFloat(text);   // e.g. "79%"
+      suffix = "%";
+    } else if (text.includes("$")) {
+      target = parseFloat(text.replace("$", ""));  // e.g. "$1.85"
+      prefix = "$";
+      isFloat = true;
+    } else if (text.includes("+")) {
+      target = parseFloat(text);   // e.g. "+7.5"
+      prefix = "+";
+      isFloat = true;
+    } else {
+      target = parseFloat(text);   // default number
+    }
+
+    $this.prop('Counter', 0).animate(
+      { Counter: target },
+      {
+        duration: 2000,
+        easing: 'swing',
+        step: function (now) {
+          let displayVal = isFloat ? now.toFixed(2) : Math.ceil(now);
+          $this.text(prefix + displayVal + suffix);
+        }
+      }
+    );
+  });
+});
 </script>
 </body>
 </html>
-
 

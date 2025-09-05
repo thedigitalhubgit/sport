@@ -250,6 +250,9 @@ input{
 	border: 0;
 	background: rgba(247, 249, 253, 1);
 }
+.contentBox .borderTable tbody td,.contentBox .borderTable tbody th{
+	border: 1px solid rgba(233, 234, 239, 1);
+}
 .contentBox tbody td img{
 	margin-right: 12px;
 }
@@ -265,7 +268,7 @@ input{
 	margin-right: 0;
 }
 .contentBox .greenTag td{
-	padding: 0px 0px 15px 30px;
+	padding: 0px 0px 15px 20px;
 }
 .contentBox .greenTag td span{
 	font-size: 8px;
@@ -487,7 +490,13 @@ input{
 .batchImg{
     position: absolute;
     top: 4px;
-    right: 4px;
+    right: 20px;
+}
+.batchImg i{
+	color: rgba(213, 10, 10, 1);
+}
+.batchImg:hover i{
+	color: rgba(50, 205, 50, 1);
 }
 .featureBtn {
 	display: flex;
@@ -567,7 +576,7 @@ input{
     border-radius: 10px;
     margin: 0 10px;
 }
-.nameTabs li a.active{
+.nameTabs li a.active,.nameTabs li:hover a{
 	background-color: #fff;
 	color: rgba(0, 86, 179, 1);
 }
